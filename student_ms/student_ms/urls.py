@@ -23,7 +23,7 @@ from .import views,Hod_Views,Student_Views,Staff_Views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('studentapp.urls')),
+    path('base/',views.BASE,name='base'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
