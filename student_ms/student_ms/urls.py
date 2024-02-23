@@ -28,6 +28,7 @@ urlpatterns = [
     path('doLogin',views.doLogin,name='doLogin'),
     path('doLogout',views.doLogout,name='logout'),
     path('Hod/Home/',Hod_Views.Home,name='hod_home'),
+    path('Profile/',views.PROFILE,name='profile'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from studentapp.EmailBackEnd import EmailBackEnd
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 def BASE(request):
     return render(request,'base.html')
@@ -32,4 +32,7 @@ def doLogin(request):
 
 def doLogout(request):
     logout(request) 
-    return redirect('login')          
+    return redirect('login')    
+
+def PROFILE(request):
+    return render(request,'profile.html')       
