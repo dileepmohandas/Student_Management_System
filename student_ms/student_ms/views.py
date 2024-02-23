@@ -34,14 +34,17 @@ def doLogin(request):
 
 def doLogout(request):
     logout(request) 
-    return redirect('login')    
+    return redirect('login')
 
+
+@login_required(login_url='/')
 def PROFILE(request):
     user = CustomUser.objects.get(id= request.user.id)
 
     context= {'user' : user}
     return render(request,'profile.html',context)    
 
+@login_required(login_url='/')
 def PROFILE_UPDATE(request):
     if request.method == "POST":
         profile_pic = request.FILES.get('profile_pic')
@@ -50,6 +53,7 @@ def PROFILE_UPDATE(request):
         #email = request.POST.get('email')
         #username = request.POST.get('username')
         password = request.POST.get('password')
+        print(profile_pic)
         try:
             customuser = CustomUser.objects.get(id = request.user.id)
 
