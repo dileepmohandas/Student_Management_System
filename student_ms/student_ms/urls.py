@@ -24,6 +24,8 @@ from .import views,Hod_Views,Student_Views,Staff_Views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('base/',views.BASE,name='base'),
+    path('login/',views.LOGIN,name='login'),
+    path('doLogin',views.doLogin,name='doLogin'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
