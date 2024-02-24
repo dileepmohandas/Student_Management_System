@@ -232,3 +232,10 @@ def ADD_STAFF(request):
 
 
     return render(request,'Hod/add_staff.html')
+
+@login_required(login_url='/')
+def VIEW_STAFF(request):
+    staff = Staff.objects.all()
+    print(staff)
+    context={'staff':staff}
+    return render(request,'Hod/view_staff.html',context)
