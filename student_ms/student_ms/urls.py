@@ -39,6 +39,7 @@ urlpatterns = [
     path('Hod/Course/View',Hod_Views.VIEW_COURSE,name='view_course'),
     path('Hod/Course/Edit/<str:id>',Hod_Views.EDIT_COURSE,name='edit_course'),
     path('Hod/Course/Update',Hod_Views.UPDATE_COURSE,name='update_course'),
+    path('Hod/Course/Delete/<str:id>',Hod_Views.DELETE_COURSE,name='delete_course'),
 
 ]
 if settings.DEBUG:

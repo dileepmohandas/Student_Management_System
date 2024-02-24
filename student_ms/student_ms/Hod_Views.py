@@ -173,6 +173,7 @@ def EDIT_COURSE(request,id):
     }
     return render(request,'Hod/edit_course.html',context)
 
+@login_required(login_url='/')
 def UPDATE_COURSE(request):
     if request.method=='POST':
         name =  request.POST.get('name')
@@ -184,3 +185,11 @@ def UPDATE_COURSE(request):
         messages.success(request,"Course are Successfully Updated")
         return redirect('view_course')
     return render(request,"hod/edit_course.html")
+
+@login_required(login_url='/')
+def DELETE_COURSE(request,id):
+    course = Course.objects.get(id = id)
+    course.delete()
+    messages.success(request,'Course are Successfully Deleted')
+
+    return redirect('view_course')
