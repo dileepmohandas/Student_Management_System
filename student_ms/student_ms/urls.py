@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static 
-from student_ms import settings 
+from django.conf import settings 
 
 from .import views,Hod_Views,Student_Views,Staff_Views
 
@@ -31,6 +31,9 @@ urlpatterns = [
     path('Profile/',views.PROFILE,name='profile'),
     path('Profile/update',views.PROFILE_UPDATE,name='profile_update'),
     path('Hod/Student/Add',Hod_Views.ADD_STUDENT,name='add_student'),
+    path('Hod/Student/View',Hod_Views.VIEW_STUDENT,name='view_student'),
+    path('Hod/Student/Edit/<str:id>',Hod_Views.EDIT_STUDENT,name='edit_student'),
+    path('Hod/Student/Update',Hod_Views.UPDATE_STUDENT,name='update_student'),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
