@@ -157,3 +157,11 @@ def ADD_COURSE(request):
         return redirect('add_course')
 
     return render(request,'Hod/add_course.html')
+
+@login_required(login_url='/')
+def VIEW_COURSE(request):
+    course = Course.objects.all()
+    context = {
+        'course':course,
+    }
+    return render(request,'Hod/view_course.html',context)
