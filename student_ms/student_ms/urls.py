@@ -37,6 +37,9 @@ urlpatterns = [
     path('Hod/Student/Delete/<str:admin>',Hod_Views.DELETE_STUDENT,name='delete_student'),
     path('Hod/Course/Add',Hod_Views.ADD_COURSE,name='add_course'),
     path('Hod/Course/View',Hod_Views.VIEW_COURSE,name='view_course'),
+    path('Hod/Course/Edit/<str:id>',Hod_Views.EDIT_COURSE,name='edit_course'),
+    path('Hod/Course/Update',Hod_Views.UPDATE_COURSE,name='update_course'),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

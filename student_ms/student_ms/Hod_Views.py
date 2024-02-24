@@ -165,3 +165,22 @@ def VIEW_COURSE(request):
         'course':course,
     }
     return render(request,'Hod/view_course.html',context)
+
+def EDIT_COURSE(request,id):
+    course = Course.objects.get(id=id)
+    context = {
+        'course':course,
+    }
+    return render(request,'Hod/edit_course.html',context)
+
+def UPDATE_COURSE(request):
+    if request.method=='POST':
+        name =  request.POST.get('name')
+        course_id = request.POST.get('course_id')
+
+        course = Course.objects.get(id = course_id)
+        course.name = name
+        course.save()
+        messages.success(request,"Course are Successfully Updated")
+        return redirect('view_course')
+    return render(request,"hod/edit_course.html")
