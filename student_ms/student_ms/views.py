@@ -71,3 +71,4 @@ def PROFILE_UPDATE(request):
             messages.error(request,'Failed To Update Your Profile')
 
     return render(request,'profile.html')
+
