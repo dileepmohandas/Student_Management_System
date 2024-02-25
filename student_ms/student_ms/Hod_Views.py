@@ -314,3 +314,12 @@ def ADD_SUBJECT(request):
         'staff':staff,
     }
     return render(request,'hod/add_subject.html',context)
+
+@login_required(login_url='/')
+def VIEW_SUBJECT(request):
+    subject=Subject.objects.all()
+
+    context ={
+        "subject" : subject,
+    }
+    return render(request,'hod/view_subject.html',context)

@@ -50,6 +50,7 @@ urlpatterns = [
     path('Hod/Course/Delete/<str:id>',Hod_Views.DELETE_COURSE,name='delete_course'),
 
     path('Hod/Subject/Add',Hod_Views.ADD_SUBJECT,name='add_subject'),
+    path('Hod/Subject/View',Hod_Views.VIEW_SUBJECT,name='view_subject'),
 
 ]
 if settings.DEBUG:
