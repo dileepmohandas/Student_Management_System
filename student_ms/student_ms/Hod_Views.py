@@ -382,4 +382,43 @@ def ADD_SESSION(request):
         session.save()
         messages.success(request,"Session Added Successfully!")
         return redirect('add_session')
-    return render(request,'hod/add_session.html')
+    return render(request,'Hod/add_session.html')
+
+def  VIEW_SESSION(request):
+    session = Session_Year.objects.all()
+
+    context={
+        'session':session,
+    }
+    return render(request,'Hod/view_session.html',context)
+
+def EDIT_SESSION(request,id):
+    session = Session_Year.objects.filter(id=id)
+
+    context={
+        'session':session,
+    }
+    
+    return render(request,'Hod/edit_session.html',context)
+
+def UPDATE_SESSION(request):
+    if request.method == "POST":
+        session_id = request.POST.get('session_id')
+        session_year_start = request.POST.get('session_year_start')
+        session_year_end = request.POST.get('session_year_end')
+
+        session = Session_Year(
+            id = session_id,
+            session_start = session_year_start,
+            session_end = session_year_end,
+        )
+        session.save()
+        messages.success(request,"Session Updated Successfully!")
+        return redirect('view_session')
+
+def DELETE_SESSION(request,id):
+    session =Session_Year.objects.get(id=id)
+    session.delete()
+    messages.success(request,"Session Deleted Successfully!")
+    return redirect('view_session')
+    

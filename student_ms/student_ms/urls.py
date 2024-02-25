@@ -57,10 +57,10 @@ urlpatterns = [
 
 
     path('Hod/Session/Add',Hod_Views.ADD_SESSION,name='add_session'),
-    # path('Hod/Session/View',Hod_Views.VIEW_SESSION,name='view_session'),
-    # path('Hod/Session/Edit/<str:id>',Hod_Views.EDIT_SESSION,name='edit_session'),
-    # path('Hod/Session/Update',Hod_Views.UPDATE_SESSION,name='update_session'),
-    # path('Hod/Session/Delete/<str:id>',Hod_Views.DELETE_SESSION,name='delete_session'),
+    path('Hod/Session/View',Hod_Views.VIEW_SESSION,name='view_session'),
+    path('Hod/Session/Edit/<str:id>',Hod_Views.EDIT_SESSION,name='edit_session'),
+    path('Hod/Session/Update',Hod_Views.UPDATE_SESSION,name='update_session'),
+    path('Hod/Session/Delete/<str:id>',Hod_Views.DELETE_SESSION,name='delete_session'),
 
 ]
 if settings.DEBUG:
