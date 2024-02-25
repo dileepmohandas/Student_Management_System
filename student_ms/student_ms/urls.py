@@ -46,10 +46,10 @@ urlpatterns = [
     path('Hod/Course/Add',Hod_Views.ADD_COURSE,name='add_course'),
     path('Hod/Course/View',Hod_Views.VIEW_COURSE,name='view_course'),
     path('Hod/Course/Edit/<str:id>',Hod_Views.EDIT_COURSE,name='edit_course'),
-    path('Hod/Course/Update',Hod_Views.UPDATE_COURSE,name='update_course'),
+    path('Hod/CouHod/Subject/Addrse/Update',Hod_Views.UPDATE_COURSE,name='update_course'),
     path('Hod/Course/Delete/<str:id>',Hod_Views.DELETE_COURSE,name='delete_course'),
 
-    path('Hod/Subject/Add',Hod_Views.ADD_SUBJECT,name='add_subject'),
+    path('',Hod_Views.ADD_SUBJECT,name='add_subject'),
     path('Hod/Subject/View',Hod_Views.VIEW_SUBJECT,name='view_subject'),
     path('Hod/Subject/Edit/<str:id>',Hod_Views.EDIT_SUBJECT,name='edit_subject'),
     path('Hod/Subject/Update',Hod_Views.UPDATE_SUBJECT,name='update_subject'),
@@ -61,6 +61,17 @@ urlpatterns = [
     path('Hod/Session/Edit/<str:id>',Hod_Views.EDIT_SESSION,name='edit_session'),
     path('Hod/Session/Update',Hod_Views.UPDATE_SESSION,name='update_session'),
     path('Hod/Session/Delete/<str:id>',Hod_Views.DELETE_SESSION,name='delete_session'),
+
+    path('Hod/Staff/Send_Notifications',Hod_Views.STAFF_SEND_NOTIFICATION,name='staff_send_notification'),
+    path('Hod/Staff/save_Notifications',Hod_Views.SAVE_STAFF_NOTIFICATION,name='save_staff_notification'),
+
+    # This is Staff urls
+
+    path('staff/home',Staff_Views.HOME,name='staff_home'),
+
+
+    path('Staff/Notifications',Staff_Views.NOTIFICATIONS,name='notifications'),
+    path('Staff/mark_as_done/<str:status>',Staff_Views.STAFF_NOTIFICATION_MARK_AS_DONE,name="staff_notification_mark_as_done"),
 
 ]
 if settings.DEBUG:

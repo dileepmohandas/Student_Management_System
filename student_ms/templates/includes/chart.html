@@ -7,7 +7,8 @@
         var options = {
             series: [{{student_count}}, {{staff_count}}, {{subject_count}}, {{course_count}}],
             chart: {
-            width: 380,
+                height: 350,
+                width: '100%',
             type: 'pie',
           },
           labels: ['Student', 'Staff', 'Subject', 'Course'],
@@ -106,6 +107,7 @@
         var options = {
             chart: {
                 height: 350,
+                width: '100%',
                 type: "area",
                 toolbar: {
                     show: false
@@ -216,7 +218,8 @@
             breakpoint: 480,
             options: {
               chart: {
-                width: 200
+                height: 350,
+                width: '100%',
               },
               legend: {
                 position: 'bottom'
@@ -234,7 +237,8 @@
           var options = {
             series: [{{course_count}}, {{subject_count}}],
             chart: {
-            width: 380,
+                height: 350,
+                width: '100%',
             type: 'donut',
           },
           plotOptions: {
@@ -254,9 +258,7 @@
               return val + " - " + opts.w.globals.series[opts.seriesIndex]
             }
           },
-          title: {
-            text: 'Gradient Donut with custom Start-angle'
-          },
+          
           labels: ['course', 'subject'],
           responsive: [{
             breakpoint: 480,
