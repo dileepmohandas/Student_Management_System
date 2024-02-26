@@ -67,6 +67,10 @@ urlpatterns = [
 
     # This is Staff urls
 
+    path('Hod/Staff/Leave_view',Hod_Views.Staff_Leave_view,name="staff_leave_view"),
+    path('Hod/Staff/approve_leave/<str:id>',Hod_Views.Staff_APPROVE_LEAVE,name="staff_approve_leave"),
+    path('Hod/Staff/disapprove_leave/<str:id>',Hod_Views.Staff_DISAPPROVE_LEAVE,name="staff_disapprove_leave"),
+
     path('staff/home',Staff_Views.HOME,name='staff_home'),
 
 
