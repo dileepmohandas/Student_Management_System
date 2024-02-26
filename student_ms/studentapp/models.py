@@ -75,7 +75,7 @@ class Staff_Notification(models.Model):
 
 class Staff_Leave(models.Model):
     staff_id=models.ForeignKey(Staff,on_delete=models.CASCADE)
-    data=models.CharField(max_length=100)
+    date=models.CharField(max_length=100)
     message=models.TextField()
     status= models.IntegerField(default=0)
     created_at=models.DateTimeField(auto_now_add=True)

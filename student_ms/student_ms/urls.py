@@ -73,6 +73,10 @@ urlpatterns = [
     path('Staff/Notifications',Staff_Views.NOTIFICATIONS,name='notifications'),
     path('Staff/mark_as_done/<str:status>',Staff_Views.STAFF_NOTIFICATION_MARK_AS_DONE,name="staff_notification_mark_as_done"),
 
+
+    path('Staff/Apply_leave',Staff_Views.STAFF_APPLY_LEAVE,name="staff_apply_leave"),
+    path('Staff/Apply_leave_save',Staff_Views.STAFF_APPLY_LEAVE_SAVE,name="staff_apply_leave_save"),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
