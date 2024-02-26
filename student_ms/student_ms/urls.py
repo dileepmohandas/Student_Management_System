@@ -71,6 +71,9 @@ urlpatterns = [
     path('Hod/Staff/approve_leave/<str:id>',Hod_Views.Staff_APPROVE_LEAVE,name="staff_approve_leave"),
     path('Hod/Staff/disapprove_leave/<str:id>',Hod_Views.Staff_DISAPPROVE_LEAVE,name="staff_disapprove_leave"),
 
+    path('Hod/Staff/feedback',Hod_Views.STAFF_FEEDBACK,name='staff_feedback_reply'),
+    path('Hod/Staff/feedback/save',Hod_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_reply_save'),
+    
     path('staff/home',Staff_Views.HOME,name='staff_home'),
 
 
@@ -80,6 +83,9 @@ urlpatterns = [
 
     path('Staff/Apply_leave',Staff_Views.STAFF_APPLY_LEAVE,name="staff_apply_leave"),
     path('Staff/Apply_leave_save',Staff_Views.STAFF_APPLY_LEAVE_SAVE,name="staff_apply_leave_save"),
+
+    path('Staff/Feedback',Staff_Views.STAFF_FEEDBACK,name='staff_feedback'),
+    path('Staff/Feedback/Save',Staff_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_save'),
 
 ]
 if settings.DEBUG:
