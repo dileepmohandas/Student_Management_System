@@ -65,17 +65,31 @@ urlpatterns = [
     path('Hod/Staff/Send_Notifications',Hod_Views.STAFF_SEND_NOTIFICATION,name='staff_send_notification'),
     path('Hod/Staff/save_Notifications',Hod_Views.SAVE_STAFF_NOTIFICATION,name='save_staff_notification'),
 
+
+    path('Hod/Student/Send_Notifications',Hod_Views.STUDENT_SEND_NOTIFICATION,name='student_send_notification'),
+    path('Hod/Student/save_Notifications',Hod_Views.SAVE_STUDENT_NOTIFICATION,name='save_student_notification'),
+
     # This is Staff urls
 
     path('Hod/Staff/Leave_view',Hod_Views.Staff_Leave_view,name="staff_leave_view"),
     path('Hod/Staff/approve_leave/<str:id>',Hod_Views.Staff_APPROVE_LEAVE,name="staff_approve_leave"),
     path('Hod/Staff/disapprove_leave/<str:id>',Hod_Views.Staff_DISAPPROVE_LEAVE,name="staff_disapprove_leave"),
 
+    path('Hod/Student/Leave_view',Hod_Views.Student_Leave_view,name="student_leave_view"),
+    path('Hod/Student/approve_leave/<str:id>',Hod_Views.STUDENT_APPROVE_LEAVE,name="student_approve_leave"),
+    path('Hod/Student/disapprove_leave/<str:id>',Hod_Views.STUDENT_DISAPPROVE_LEAVE,name="student_disapprove_leave"),
+
+
+
     path('Hod/Staff/feedback',Hod_Views.STAFF_FEEDBACK,name='staff_feedback_reply'),
     path('Hod/Staff/feedback/save',Hod_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_reply_save'),
     
+
+
     path('staff/home',Staff_Views.HOME,name='staff_home'),
 
+
+    
 
     path('Staff/Notifications',Staff_Views.NOTIFICATIONS,name='notifications'),
     path('Staff/mark_as_done/<str:status>',Staff_Views.STAFF_NOTIFICATION_MARK_AS_DONE,name="staff_notification_mark_as_done"),
@@ -86,6 +100,15 @@ urlpatterns = [
 
     path('Staff/Feedback',Staff_Views.STAFF_FEEDBACK,name='staff_feedback'),
     path('Staff/Feedback/Save',Staff_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_save'),
+
+    path('Student/Home',Student_Views.Home,name='student_home'),
+
+    
+   
+
+    path('Student/apply_for_leave',Student_Views.STUDENT_LEAVE,name='student_leave'),
+    path('Student/Leave_save',Student_Views.STUDENT_LEAVE_SAVE,name='student_leave_save'),
+
 
 ]
 if settings.DEBUG:

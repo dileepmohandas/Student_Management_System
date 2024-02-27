@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from studentapp.models import Course,Session_Year,CustomUser,Student,Staff,Subject,Staff_Notification,Staff_Leave,Staff_Feedback
+from studentapp.models import Course,Session_Year,CustomUser,Student,Staff,Subject,Staff_Notification,Staff_Leave,Staff_Feedback,Student_Notification,Student_Leave
 from django.contrib import messages
 
 @login_required(login_url='/')
@@ -479,6 +479,14 @@ def Staff_Leave_view(request):
     }
     return render(request,'Hod/staff_leave.html',context)      
 
+def Student_Leave_view(request):
+    student_leave=Student_Leave.objects.all()
+
+    context={
+        'student_leave':student_leave,
+    }
+    return render(request,'Hod/student_leave.html',context)
+
 
 @login_required(login_url='/')
 def Staff_APPROVE_LEAVE(request,id):
@@ -494,6 +502,20 @@ def Staff_DISAPPROVE_LEAVE(request,id):
     leave.status = 2
     leave.save()
     return redirect('staff_leave_view')
+
+def STUDENT_APPROVE_LEAVE(request,id):
+    student_leave=Student_Leave.objects.get(id=id)
+    student_leave.status=1
+    student_leave.save()
+    return redirect('student_leave_view')
+
+
+def STUDENT_DISAPPROVE_LEAVE(request,id):
+    student_leave=Student_Leave.objects.get(id=id)
+    student_leave.status=2
+    student_leave.save()
+    return redirect('student_leave_view')
+
 
 def STAFF_FEEDBACK(request):
     feedback=Staff_Feedback.objects.all()
@@ -514,3 +536,33 @@ def STAFF_FEEDBACK_SAVE(request):
          feedback.feedback_reply= feedback_reply
          feedback.save()
          return redirect('staff_feedback_reply')
+
+
+def STUDENT_SEND_NOTIFICATION(request):
+    student = Student.objects.all()
+    notification=Student_Notification.objects.all()
+
+    context = {
+        'student':student,
+        'notification':notification,
+    }
+    return render(request,'Hod/student_notification.html',context)    
+
+
+def SAVE_STUDENT_NOTIFICATION(request):
+    if request.method =="POST":
+        message=request.POST.get('message')
+        student_id=request.POST.get('student_id')
+
+        student=Student.objects.get(admin=student_id)
+        
+        stud_notification=Student_Notification(
+            student_id=student,
+            message=message,
+        )
+        stud_notification.save()
+        messages.success(request,'Student Notification are Successfully Sent')
+        return redirect('student_send_notification')
+    
+
+
