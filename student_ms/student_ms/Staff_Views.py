@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from studentapp.models import Staff,Staff_Notification,Staff_Leave,Staff_Feedback
+from studentapp.models import Staff,Staff_Notification,Staff_Leave,Staff_Feedback,Subject,Session_Year,Student
 from django.contrib import messages
 def HOME(request):
     return render(request,'Staff/home.html') 

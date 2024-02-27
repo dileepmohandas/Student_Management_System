@@ -101,6 +101,8 @@ urlpatterns = [
     path('Staff/Feedback',Staff_Views.STAFF_FEEDBACK,name='staff_feedback'),
     path('Staff/Feedback/Save',Staff_Views.STAFF_FEEDBACK_SAVE,name='staff_feedback_save'),
 
+
+
     path('Student/Home',Student_Views.Home,name='student_home'),
 
     
